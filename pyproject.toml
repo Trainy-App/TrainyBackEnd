@@ -5,7 +5,7 @@ description = "Default template for PDM package"
 authors = [
     {name = "AnthonyLoche", email = "anthonylocheifc@gmail.com"},
 ]
-dependencies = ["django>=5.1.6"]
+dependencies = ["django>=5.1.6", "djangorestframework>=3.15.2", "pydotplus>=2.0.2", "django-extensions>=3.2.3", "faker>=36.1.1"]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
@@ -24,6 +24,7 @@ createsuperuser = "python manage.py createsuperuser"
 changepassword = "python manage.py changepassword"
 migrate = "python manage.py migrate"
 makemigrations = "python manage.py makemigrations"
+migrate_db = "python manage.py migrate_db"
 shell = "python manage.py shell"
 test = "python manage.py test"
 startapp = "python manage.py startapp {args}"
