@@ -10,9 +10,11 @@ from rest_framework_simplejwt.views import (
 )
 
 from core.authentication.views import CustomTokenObtainPairView, UserViewSet
+from core.uploader.views import ImageViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'images', ImageViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

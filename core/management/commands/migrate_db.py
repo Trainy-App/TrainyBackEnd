@@ -8,7 +8,7 @@ class Command(BaseCommand):
     help = 'Apaga o banco de dados, remove pastas de migrações e executa os comandos makemigrations e migrate para diferentes apps'
 
     def handle(self, *args, **kwargs):
-        apps = ["authentication", "trainy"]
+        apps = ["authentication", "trainy", "uploader"]
         db_path = 'db.sqlite3'
 
         if os.path.exists(db_path):
