@@ -2,6 +2,7 @@ import subprocess
 import os
 import shutil
 from django.core.management.base import BaseCommand
+from django.contrib.auth import get_user_model
 
 class Command(BaseCommand):
     help = 'Apaga o banco de dados, remove pastas de migrações e executa os comandos makemigrations e migrate para diferentes apps'
@@ -28,5 +29,11 @@ class Command(BaseCommand):
             subprocess.run(['pdm', 'migrate', app], check=True)
         
         subprocess.run(['pdm', 'migrate'], check=True)
+
+        # Create superuser
+        User = get_user_model()
+        if not User.objects.filter(username='admin').exists():
+            self.stdout.write('Criando superusuário admin...')
+            User.objects.create_superuser('admin@admin.com','admin')
 
         self.stdout.write(self.style.SUCCESS('Comandos executados com sucesso para todos os apps!'))
