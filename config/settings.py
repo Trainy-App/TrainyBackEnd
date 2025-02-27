@@ -6,16 +6,19 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 
-load_dotenv()
+import dj_database_url
 
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-=u1giwxp^_e*krp%$qkdr&)^q(jwu_-#%g7_br7#3e@p*_=d1r'
 
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+
+MODE = os.getenv('MODE', 'DEVELOPMENT')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -31,6 +34,7 @@ INSTALLED_APPS = [
     'core.uploader',
     "django_extensions",
     'rest_framework_simplejwt',
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
@@ -41,6 +45,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware', 
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -63,12 +68,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if MODE in ["PRODUCTION", "MIGRATE"]:
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -140,6 +152,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "authentication.User"
 
+# Configurações do Cloudinary
 CLOUD_NAME = os.getenv('CLOUD_NAME')
 API_KEY = os.getenv('API_KEY')
 API_SECRET = os.getenv('API_SECRET')
@@ -149,3 +162,5 @@ cloudinary.config(
     api_key=API_KEY,
     api_secret=API_SECRET
 )
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
