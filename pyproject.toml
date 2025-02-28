@@ -2,13 +2,24 @@
 name = "TrainyBackEnd"
 version = "0.1.0"
 description = "Default template for PDM package"
-authors = [
-    {name = "AnthonyLoche", email = "anthonylocheifc@gmail.com"},
+authors = [{ name = "AnthonyLoche", email = "anthonylocheifc@gmail.com" }]
+dependencies = [
+    "django>=5.1.6",
+    "djangorestframework>=3.15.2",
+    "pydotplus>=2.0.2",
+    "django-extensions>=3.2.3",
+    "faker>=36.1.1",
+    "djangorestframework-simplejwt>=5.5.0",
+    "drf-spectacular>=0.28.0",
+    "cloudinary>=1.42.2",
+    "python-dotenv>=1.0.1",
+    "Pillow>=11.1.0",
+    "python-magic>=0.4.27",
+    "django-cors-headers>=4.7.0",
 ]
-dependencies = ["django>=5.1.6", "djangorestframework>=3.15.2", "pydotplus>=2.0.2", "django-extensions>=3.2.3", "faker>=36.1.1", "djangorestframework-simplejwt>=5.5.0", "drf-spectacular>=0.28.0", "cloudinary>=1.42.2", "python-dotenv>=1.0.1", "Pillow>=11.1.0", "python-magic>=0.4.27"]
 requires-python = ">=3.12"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [build-system]
 requires = ["setuptools>=61"]
