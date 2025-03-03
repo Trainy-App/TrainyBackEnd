@@ -8,6 +8,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from core.authentication.serializers import CustomTokenObtainPairSerializer
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
+from core.authentication.serializers import AthleteSerializer, PersonalSerializer
 
 User = get_user_model()
 
@@ -37,21 +38,36 @@ class UserViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['GET', 'PATCH', 'DELETE'], permission_classes=[IsAuthenticated])
     def me(self, request):
         """Retorna ou atualiza os dados do usuário autenticado"""
+        user = request.user
+        print(user)
+
         if request.method == 'GET':
-            serializer = self.get_serializer(request.user)
+            serializer = self.get_serializer(user)
             return Response(serializer.data)
-        
+
         elif request.method == 'PATCH':
-            serializer = self.get_serializer(request.user, data=request.data, partial=True)
+            user = request.user
+            if hasattr(user, 'athlete'):
+                serializer = AthleteSerializer(user.athlete, data=request.data, partial=True)
+            elif hasattr(user, 'personal'):
+                serializer = PersonalSerializer(user.personal, data=request.data, partial=True)
+            else:
+                serializer = self.get_serializer(user, data=request.data, partial=True)
+
             if serializer.is_valid():
                 serializer.save()
                 return Response(serializer.data)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
+
         elif request.method == 'DELETE':
-            user = request.user
-            user.delete()
-            return Response({"detail": "Conta deletada com sucesso"}, status=status.HTTP_204_NO_CONTENT)
+            try:
+                user.delete()
+                return Response({"detail": "Conta deletada com sucesso"}, status=status.HTTP_204_NO_CONTENT)
+            except Exception:
+                return Response({"error": "Erro ao deletar conta"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+        return Response({"error": "Método não permitido"}, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
 
     def update(self, request, *args, **kwargs):
         """Bloqueia atualização direta via ID"""

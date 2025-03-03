@@ -9,11 +9,13 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
 )
 
-from core.authentication.views import CustomTokenObtainPairView, UserViewSet
+from core.authentication.views import CustomTokenObtainPairView, UserViewSet, AthleteViewSet, PersonalViewSet
 from core.uploader.views import ImageViewSet
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'athletes', AthleteViewSet)
+router.register(r'personals', PersonalViewSet)
 router.register(r'images', ImageViewSet)
 
 urlpatterns = [
