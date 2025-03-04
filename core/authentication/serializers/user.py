@@ -43,10 +43,9 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
 
-        # Se houver uma imagem, fazer o upload para o Cloudinary
         if profile_picture:
             image = create_image(profile_picture, description="Foto de perfil", folder_path="media/profile")
-            user.photo_url = image.file  # Atualiza o campo de foto no modelo
+            user.photo_url = image.file 
             user.save()
 
         return user

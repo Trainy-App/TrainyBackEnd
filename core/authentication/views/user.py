@@ -23,11 +23,11 @@ class UserViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend]
     filterset_fields = '__all__'
 
-    def get_permissions(self):
-        """Define permissões baseadas na ação da requisição"""
-        if self.action in ['create']:
-            return [AllowAny()]
-        return [IsAuthenticated()]
+    # def get_permissions(self):
+    #     """Define permissões baseadas na ação da requisição"""
+    #     if self.action in ['create']:
+    #         return [AllowAny()]
+    #     return [IsAuthenticated()]
 
     def create(self, request, *args, **kwargs):
         """Registra um usuário e retorna o token JWT"""

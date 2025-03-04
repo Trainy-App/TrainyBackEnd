@@ -6,7 +6,3 @@ admin.site.register(exercicies_divison.Exercicies_Division)
 admin.site.register(muscles.Muscles)
 admin.site.register(division.Division)
 admin.site.register(exercicies.Exercicies)
-
-
-
-# Register your models here.
