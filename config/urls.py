@@ -22,6 +22,34 @@ def api_root(request, format=None):
         'uploader': reverse('uploader-root', request=request, format=format),
     })
 
+from core.authentication.views import (
+    CustomTokenObtainPairView, 
+    UserViewSet, 
+    AthleteViewSet, 
+    PersonalViewSet
+)
+
+from core.trainy.views import (
+    WorkoutViewSet,
+    DivisionViewSet,
+    ExerciciesDivisionViewSet,
+    MuscleViewSet,
+    ExerciciesViewSet
+)
+
+from core.uploader.views import ImageViewSet
+
+router = DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'athletes', AthleteViewSet)
+router.register(r'personals', PersonalViewSet)
+router.register(r'images', ImageViewSet)
+router.register(r'workouts', WorkoutViewSet)
+router.register(r'divisions', DivisionViewSet)
+router.register(r'exercicies_divisions', ExerciciesDivisionViewSet)
+router.register(r'muscles', MuscleViewSet)
+router.register(r'exercicies', ExerciciesViewSet)
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', api_root, name='api-root'),

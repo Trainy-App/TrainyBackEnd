@@ -1,6 +1,7 @@
 {
     "python.analysis.extraPaths": [
-        "./__pypackages__/3.13/lib"
+        "./__pypackages__/3.13/lib",
+        "./__pypackages__/3.12/lib",
     ],
     "python.analysis.autoImportCompletions": true,
     "python.analysis.typeCheckingMode": "off"
