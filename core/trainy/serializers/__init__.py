@@ -4,4 +4,4 @@ from .muscles import MuscleSerializer
 from .division import DivisionSerializer
 from .exercicies_divison import ExerciciesDivisionSerializer
 from .plan import PlanSerializer
-from .workout import WorkoutSerializer
+from .workout import WorkoutListSerializers, WorkoutCreateSerializer, WorkoutDetailSerializer
