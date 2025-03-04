@@ -7,5 +7,7 @@ class User(AbstractUser):
     phone = models.CharField(max_length=11)
     photo_url = models.URLField(null=True, blank=True)
 
+    
+
     def __str__(self):
         return self.username

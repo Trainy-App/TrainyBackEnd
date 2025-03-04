@@ -1,106 +1,44 @@
-[
-    {
-        "name": "Example Workout",
-        "description": "This is an example workout",
-        "data": "",
-        "user": "example_user",
-        "divisions": [
-            {
-                "name": "A",
-                "muscles": [1, 2, 3],
-                "exercises": [
-                    {
-                        "id_exercicie": 1,
-                        "sets": 3,
-                        "reps": 12,
-                        "rest": 60
-                    },
-                    {
-                        "id_exercicie": 2,
-                        "sets": 3,
-                        "reps": 10,
-                        "rest": 60
-                    },
-                    {
-                        "id_exercicie": 3,
-                        "sets": 3,
-                        "reps": 15,
-                        "rest": 45
-                    }
-                ]
-            },
-            {
-                "name": "B",
-                "muscles": [4, 5, 6],
-                "exercises": [
-                    {
-                        "id_exercicie": 4,
-                        "sets": 3,
-                        "reps": 10,
-                        "rest": 60
-                    },
-                    {
-                        "id_exercicie": 5,
-                        "sets": 3,
-                        "reps": 12,
-                        "rest": 45
-                    },
-                    {
-                        "id_exercicie": 6,
-                        "sets": 3,
-                        "reps": 15,
-                        "rest": 30
-                    }
-                ]
-            },
-            {
-                "name": "C",
-                "muscles": [7, 8, 9],
-                "exercises": [
-                    {
-                        "id_exercicie": 7,
-                        "sets": 4,
-                        "reps": 12,
-                        "rest": 60
-                    },
-                    {
-                        "id_exercicie": 8,
-                        "sets": 3,
-                        "reps": 10,
-                        "rest": 45
-                    },
-                    {
-                        "id_exercicie": 9,
-                        "sets": 3,
-                        "reps": 15,
-                        "rest": 30
-                    }
-                ]
-            },
-            {
-                "name": "D",
-                "muscles": [10, 11, 12],
-                "exercises": [
-                    {
-                        "id_exercicie": 10,
-                        "sets": 3,
-                        "reps": 10,
-                        "rest": 60
-                    },
-                    {
-                        "id_exercicie": 11,
-                        "sets": 3,
-                        "reps": 12,
-                        "rest": 45
-                    },
-                    {
-                        "id_exercicie": 12,
-                        "sets": 3,
-                        "reps": 15,
-                        "rest": 30
-                    }
-                ]
-            }
-        ]
-    }
-]
+{
+    "name": "Example Workout",
+    "description": "This is an example workout",
+    "date": "2020-01-02",
+    "athlete": 5,
+    "divisions": [
+        {
+            "name": "A",
+            "muscles": [1, 2, 3],
+            "exercises": [
+                { "id_exercicie": 1, "sets": 3, "reps": 12 },
+                { "id_exercicie": 2, "sets": 3, "reps": 10 },
+                { "id_exercicie": 3, "sets": 3, "reps": 15 }
+            ]
+        },
+        {
+            "name": "B",
+            "muscles": [4, 5, 6],
+            "exercises": [
+                { "id_exercicie": 4, "sets": 3, "reps": 10 },
+                { "id_exercicie": 5, "sets": 3, "reps": 12 },
+                { "id_exercicie": 6, "sets": 3, "reps": 15 }
+            ]
+        },
+        {
+            "name": "C",
+            "muscles": [7, 8, 9],
+            "exercises": [
+                { "id_exercicie": 7, "sets": 4, "reps": 12 },
+                { "id_exercicie": 8, "sets": 3, "reps": 10 },
+                { "id_exercicie": 9, "sets": 3, "reps": 15 }
+            ]
+        },
+        {
+            "name": "D",
+            "muscles": [10, 11, 12],
+            "exercises": [
+                { "id_exercicie": 10, "sets": 3, "reps": 10 },
+                { "id_exercicie": 11, "sets": 3, "reps": 12 },
+                { "id_exercicie": 12, "sets": 3, "reps": 15 }
+            ]
+        }
+    ]
+}

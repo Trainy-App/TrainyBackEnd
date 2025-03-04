@@ -1,17 +1,39 @@
+# user.py
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from core.uploader.utils.create_image import create_image 
+from core.uploader.utils.create_image import create_image
 
 User = get_user_model()
 
+class UserBasicSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'name', 'photo_url')
+
 class UserSerializer(serializers.ModelSerializer):
     profile_picture = serializers.ImageField(write_only=True, required=False)
+    perfil = serializers.SerializerMethodField()  # Campo para incluir o objeto relacionado
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'password', 'name', 'profile_picture', 'photo_url']
-        extra_kwargs = {'password': {'write_only': True}} 
+        fields = ['id', 'username', 'email', 'password', 'name', 'profile_picture', 'photo_url', 'perfil']
+        extra_kwargs = {'password': {'write_only': True}}
+
+    def get_perfil(self, obj):
+        # Importa os serializers dentro do método para evitar importações circulares
+        if hasattr(obj, 'personal'):
+            from core.authentication.serializers.personal import PersonalSerializer
+            data = PersonalSerializer(obj.personal).data  # serializa o objeto personal
+            data.pop('user', None)
+            return data
+        elif hasattr(obj, 'athlete'):
+            from core.authentication.serializers.athlete import AthleteSerializer
+            data = AthleteSerializer(obj.athlete).data  # serializa o objeto athlete
+            data.pop('user', None)  # remove a chave 'user' se existir
+            return data
+        return None
 
     def create(self, validated_data):
         """Cria um usuário, faz o hash da senha e salva a foto de perfil."""
