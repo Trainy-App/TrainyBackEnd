@@ -1,0 +1,295 @@
+{
+    "id": 8,
+    "name": "Example Workout",
+    "date": "2020-01-02",
+    "description": "This is an example workout",
+    "athlete": 5,
+    "divisions": [
+        {
+            "id": 5,
+            "name": "A",
+            "muscles": [
+                {
+                    "id": 1,
+                    "name": "Peitoral",
+                    "description": "Músculo Peitoral usado em vários exercícios."
+                },
+                {
+                    "id": 2,
+                    "name": "Dorsal",
+                    "description": "Músculo Dorsal usado em vários exercícios."
+                },
+                {
+                    "id": 3,
+                    "name": "Bíceps",
+                    "description": "Músculo Bíceps usado em vários exercícios."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": 1,
+                    "name": "Supino Reto",
+                    "description": "Exercício Supino Reto para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 5,
+                            "name": "Ombros",
+                            "description": "Músculo Ombros usado em vários exercícios."
+                        },
+                        {
+                            "id": 19,
+                            "name": "Paravertebrais",
+                            "description": "Músculo Paravertebrais usado em vários exercícios."
+                        },
+                        {
+                            "id": 20,
+                            "name": "Oblíquos",
+                            "description": "Músculo Oblíquos usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "name": "Supino Inclinado",
+                    "description": "Exercício Supino Inclinado para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 8,
+                            "name": "Panturrilha",
+                            "description": "Músculo Panturrilha usado em vários exercícios."
+                        },
+                        {
+                            "id": 16,
+                            "name": "Serrátil",
+                            "description": "Músculo Serrátil usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 3,
+                    "name": "Crucifixo",
+                    "description": "Exercício Crucifixo para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 2,
+                            "name": "Dorsal",
+                            "description": "Músculo Dorsal usado em vários exercícios."
+                        },
+                        {
+                            "id": 8,
+                            "name": "Panturrilha",
+                            "description": "Músculo Panturrilha usado em vários exercícios."
+                        },
+                        {
+                            "id": 15,
+                            "name": "Abdutores",
+                            "description": "Músculo Abdutores usado em vários exercícios."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "B",
+            "muscles": [
+                {
+                    "id": 4,
+                    "name": "Tríceps",
+                    "description": "Músculo Tríceps usado em vários exercícios."
+                },
+                {
+                    "id": 5,
+                    "name": "Ombros",
+                    "description": "Músculo Ombros usado em vários exercícios."
+                },
+                {
+                    "id": 6,
+                    "name": "Quadríceps",
+                    "description": "Músculo Quadríceps usado em vários exercícios."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": 4,
+                    "name": "Pulldown",
+                    "description": "Exercício Pulldown para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 6,
+                            "name": "Quadríceps",
+                            "description": "Músculo Quadríceps usado em vários exercícios."
+                        },
+                        {
+                            "id": 8,
+                            "name": "Panturrilha",
+                            "description": "Músculo Panturrilha usado em vários exercícios."
+                        },
+                        {
+                            "id": 19,
+                            "name": "Paravertebrais",
+                            "description": "Músculo Paravertebrais usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "Remada Curvada",
+                    "description": "Exercício Remada Curvada para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 5,
+                            "name": "Ombros",
+                            "description": "Músculo Ombros usado em vários exercícios."
+                        },
+                        {
+                            "id": 8,
+                            "name": "Panturrilha",
+                            "description": "Músculo Panturrilha usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 6,
+                    "name": "Rosca Direta",
+                    "description": "Exercício Rosca Direta para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 19,
+                            "name": "Paravertebrais",
+                            "description": "Músculo Paravertebrais usado em vários exercícios."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "C",
+            "muscles": [
+                {
+                    "id": 7,
+                    "name": "Isquiotibiais",
+                    "description": "Músculo Isquiotibiais usado em vários exercícios."
+                },
+                {
+                    "id": 8,
+                    "name": "Panturrilha",
+                    "description": "Músculo Panturrilha usado em vários exercícios."
+                },
+                {
+                    "id": 9,
+                    "name": "Glúteos",
+                    "description": "Músculo Glúteos usado em vários exercícios."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": 7,
+                    "name": "Rosca Martelo",
+                    "description": "Exercício Rosca Martelo para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 9,
+                            "name": "Glúteos",
+                            "description": "Músculo Glúteos usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "name": "Tríceps Testa",
+                    "description": "Exercício Tríceps Testa para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 16,
+                            "name": "Serrátil",
+                            "description": "Músculo Serrátil usado em vários exercícios."
+                        },
+                        {
+                            "id": 20,
+                            "name": "Oblíquos",
+                            "description": "Músculo Oblíquos usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "name": "Desenvolvimento",
+                    "description": "Exercício Desenvolvimento para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 1,
+                            "name": "Peitoral",
+                            "description": "Músculo Peitoral usado em vários exercícios."
+                        },
+                        {
+                            "id": 3,
+                            "name": "Bíceps",
+                            "description": "Músculo Bíceps usado em vários exercícios."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": "D",
+            "muscles": [
+                {
+                    "id": 10,
+                    "name": "Abdômen",
+                    "description": "Músculo Abdômen usado em vários exercícios."
+                },
+                {
+                    "id": 11,
+                    "name": "Antebraço",
+                    "description": "Músculo Antebraço usado em vários exercícios."
+                },
+                {
+                    "id": 12,
+                    "name": "Trapézio",
+                    "description": "Músculo Trapézio usado em vários exercícios."
+                }
+            ],
+            "exercises": [
+                {
+                    "id": 10,
+                    "name": "Elevação Lateral",
+                    "description": "Exercício Elevação Lateral para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 10,
+                            "name": "Abdômen",
+                            "description": "Músculo Abdômen usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 11,
+                    "name": "Agachamento Livre",
+                    "description": "Exercício Agachamento Livre para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 1,
+                            "name": "Peitoral",
+                            "description": "Músculo Peitoral usado em vários exercícios."
+                        }
+                    ]
+                },
+                {
+                    "id": 12,
+                    "name": "Leg Press",
+                    "description": "Exercício Leg Press para fortalecimento muscular.",
+                    "muscle": [
+                        {
+                            "id": 7,
+                            "name": "Isquiotibiais",
+                            "description": "Músculo Isquiotibiais usado em vários exercícios."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
