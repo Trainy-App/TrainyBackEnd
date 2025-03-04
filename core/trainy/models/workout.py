@@ -8,7 +8,7 @@ class Workout(models.Model):
     athlete = models.OneToOneField(Athlete, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Workout {self.id} - {self.name} - {self.date} - {self.description} - {self.athlete}"
+        return f"Workout {self.name} - {self.description} - {self.athlete}"
 
     class Meta:
         verbose_name = "Workout"

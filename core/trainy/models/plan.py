@@ -8,7 +8,7 @@ class Plan(models.Model):
     personal = models.OneToOneField(Personal, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"Plan {self.id} - {self.name} - {self.price} - {self.duration} - {self.personal}"
+        return f"Plan {self.name} - {self.personal.name}"
     
     class Meta:
         verbose_name = "Plan"

@@ -1,3 +1,4 @@
+import http
 from django.contrib.auth import get_user_model
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -9,12 +10,18 @@ from core.authentication.serializers import CustomTokenObtainPairSerializer
 from rest_framework.decorators import action
 from rest_framework.exceptions import PermissionDenied
 from core.authentication.serializers import AthleteSerializer, PersonalSerializer
+from django_filters.rest_framework import DjangoFilterBackend
 
 User = get_user_model()
+
+
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    http_method_names = ['get', 'patch', 'delete']
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = '__all__'
 
     def get_permissions(self):
         """Define permissões baseadas na ação da requisição"""
@@ -39,7 +46,6 @@ class UserViewSet(viewsets.ModelViewSet):
     def me(self, request):
         """Retorna ou atualiza os dados do usuário autenticado"""
         user = request.user
-        print(user)
 
         if request.method == 'GET':
             serializer = self.get_serializer(user)
@@ -82,12 +88,20 @@ class UserViewSet(viewsets.ModelViewSet):
         raise PermissionDenied("Operação não permitida")
 
     def list(self, request, *args, **kwargs):
-        """Bloqueia listagem de usuários"""
-        raise PermissionDenied("Operação não permitida")
+        # Se os relacionamentos forem OneToOne, use select_related;
+        # caso contrário, prefetech_related com o nome correto da relação.
+        users = User.objects.all().select_related('personal', 'athlete')
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+        
 
     def retrieve(self, request, *args, **kwargs):
         """Bloqueia busca de usuário por ID"""
         raise PermissionDenied("Use /api/users/me/ para acessar seus dados")
+    
+    def create(self, request, *args, **kwargs):
+        """Bloqueia criação de usuários"""
+        raise PermissionDenied("Operação não permitida")
 
 class CustomTokenObtainPairView(TokenObtainPairView):
     serializer_class = CustomTokenObtainPairSerializer
