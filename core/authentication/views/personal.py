@@ -5,12 +5,10 @@ from rest_framework import status
 from core.authentication.models import Personal
 from core.authentication.serializers import PersonalSerializer
 
-
-
 class PersonalViewSet(viewsets.ModelViewSet):
     queryset = Personal.objects.all()
     serializer_class = PersonalSerializer
-    permission_classes = [IsAuthenticated]
+    # permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         serializer = PersonalSerializer(data=request.data)
