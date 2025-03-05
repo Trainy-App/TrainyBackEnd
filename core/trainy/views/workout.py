@@ -4,11 +4,14 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from core.trainy.models import Workout, Division, Exercicies_Division, Exercicies
 from core.authentication.models import Athlete
-
+from django_filters.rest_framework import DjangoFilterBackend
+from core.trainy.filters import WorkoutUserFilter
 
 class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
     serializer_class = WorkoutListSerializers
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = WorkoutUserFilter
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
