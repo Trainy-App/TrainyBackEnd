@@ -10,5 +10,4 @@ class SharedAPIRootRouter(DefaultRouter):
         """
         self.registry.extend(router.registry)
 
-# Instância do roteador compartilhado
 shared_router = SharedAPIRootRouter()

@@ -1,4 +1,3 @@
-# user.py
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from rest_framework.response import Response
@@ -29,7 +28,7 @@ class UserBasicSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     profile_picture = serializers.ImageField(write_only=True, required=False)
-    perfil = serializers.SerializerMethodField()  # Campo para incluir o objeto relacionado
+    perfil = serializers.SerializerMethodField()
 
     class Meta:
         model = User
@@ -37,16 +36,15 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def get_perfil(self, obj):
-        # Importa os serializers dentro do método para evitar importações circulares
         if hasattr(obj, 'personal'):
             from core.authentication.serializers.personal import PersonalSerializer
-            data = PersonalSerializer(obj.personal).data  # serializa o objeto personal
+            data = PersonalSerializer(obj.personal).data 
             data.pop('user', None)
             return data
         elif hasattr(obj, 'athlete'):
             from core.authentication.serializers.athlete import AthleteSerializer
-            data = AthleteSerializer(obj.athlete).data  # serializa o objeto athlete
-            data.pop('user', None)  # remove a chave 'user' se existir
+            data = AthleteSerializer(obj.athlete).data
+            data.pop('user', None)
             return data
         return None
 

@@ -1,4 +1,4 @@
-from core.trainy.serializers import WorkoutListSerializers, WorkoutCreateSerializer, WorkoutDetailSerializer
+from core.trainy.serializers import WorkoutListSerializers
 from django.db import transaction
 from rest_framework import viewsets, status
 from rest_framework.response import Response
@@ -8,13 +8,9 @@ from core.authentication.models import Athlete
 
 class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
+    serializer_class = WorkoutListSerializers
 
-    def get_serializer_class(self):
-        if self.action == "list":
-            return WorkoutListSerializers  # Para o 'list', usa o WorkoutListSerializers
-        elif self.action == "retrieve":
-            return WorkoutDetailSerializer  # Para o 'retrieve', usa o WorkoutDetailSerializer
-        return WorkoutCreateSerializer  # Para outras ações, usa o WorkoutCreateSerializer
+
 
     @transaction.atomic
     def create(self, request, *args, **kwargs):
