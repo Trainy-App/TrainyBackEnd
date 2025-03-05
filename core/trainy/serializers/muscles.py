@@ -5,3 +5,8 @@ class MuscleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Muscles
         fields = '__all__'
+
+class MusclesListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Muscles
+        fields = ['id', 'name', 'description']

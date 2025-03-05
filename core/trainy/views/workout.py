@@ -10,8 +10,6 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     queryset = Workout.objects.all()
     serializer_class = WorkoutListSerializers
 
-
-
     @transaction.atomic
     def create(self, request, *args, **kwargs):
         try:
